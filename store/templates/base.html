@@ -1,0 +1,39 @@
+{% load static %}
+{% load bootstrap4 %}
+{% load bootstrap_themes %}
+{% bootstrap_styles theme='flatly' type='min.css' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'base/css/styles.css' %}">
+</head>
+<body>
+    <div>Bookstore</div>
+    <nav>
+        <a href="{% url 'index' %}">Home</a> |
+        <a href="{% url 'store' %}">Store</a> | 
+        <a href="{% url 'new_book' %}">New Book</a>
+    </nav>
+    <img class="header-image" src="{% static 'base/img/turtle.jpg' %}" alt="Turtle with a crown.">
+    <div>
+        <button type="button" class="btn btn-primary">Primary</button>
+        <button type="button" class="btn btn-secondary">Secondary</button>
+        <button type="button" class="btn btn-success">Success</button>
+        <button type="button" class="btn btn-info">Info</button>
+        <button type="button" class="btn btn-warning">Warning</button>
+        <button type="button" class="btn btn-danger">Danger</button>
+        <button type="button" class="btn btn-link">Link</button>
+    </div>
+
+
+    {% block bootstrap4_content %}
+        {% block content %}
+        {% endblock %}   
+        
+        <h2>Example heading<span class="badge badge-primary">New</span></h2>
+    {% endblock %} 
+</body>
+</html>

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>New Book</h1>
+    <p>Request method: {{method}}</p>
+    <p>Title (if it exists): {{title}}</p>
+    <p>Logged in as: {{request.user}}</p>
+    <p>Error: {{error}}</p>
+
+    <form action="{% url 'new_book' %}" method="POST">
+        {% csrf_token %}
+        <div>
+            <label>
+                Title:
+                <input type="text" name="title" />
+            </label>
+        </div>
+        <div>
+            <label>
+                Author:
+                <input type="text" name="author" />
+            </label>
+        </div>
+        <button class="btn btn-primary" type="submit">Create Book</button>
+    </form>
+{% endblock %}

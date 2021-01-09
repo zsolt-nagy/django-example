@@ -1,0 +1,11 @@
+.header-image {
+    width: 250px;
+    border: 5px ridge brown;
+    margin: 10px 25px;
+}
+
+.books-container {
+    margin: 20px 60px; 
+    display: flex;
+    flex-direction: column;
+}

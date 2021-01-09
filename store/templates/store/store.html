@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Store</h1>
+    <p>There are {{count}} book type(s) in stock.</p>
+    <section class="books-container">
+        {% for book in books %}
+        <div>
+            {{book.title}} ({{book.author}}) - Stock: {{book.stock}}
+            <form action="{% url 'store' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="id" value="{{book.id}}" />
+                <button class="btn btn-info" type="submit">Buy</button>
+            </form>            
+        </div>
+        {% endfor %}
+    </section>
+{% endblock %}
